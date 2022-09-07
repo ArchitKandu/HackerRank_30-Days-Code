@@ -4,7 +4,16 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 int bitwiseAnd(int N, int K) {
-    
+    int max=0;
+    int ans=0;
+    for(int i=1;i<N;i++){
+        for(int j=i+1;j<=N;j++){
+            ans= i & j;
+            if(ans>max && ans<K)
+                max=ans;
+        }
+    }
+    return max;
 }
 int main() {
     ofstream fout(getenv("OUTPUT_PATH"));
